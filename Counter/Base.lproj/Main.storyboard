@@ -68,7 +68,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="actionLogTextViev" destination="3EI-sW-kxp" id="Sbl-RU-dOp"/>
+                        <outlet property="actionLogTextView" destination="3EI-sW-kxp" id="S9I-AX-Ky5"/>
                         <outlet property="counterLabel" destination="RHZ-aC-qnl" id="XZ2-e3-mIO"/>
                         <outlet property="incrementButton" destination="zvG-0a-xLS" id="oDu-sy-u4f"/>
                         <outlet property="resetButton" destination="w1Q-1W-Pit" id="NCd-cv-jhy"/>

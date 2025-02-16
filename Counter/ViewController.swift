@@ -41,8 +41,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var incrementButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-        
-    @IBOutlet weak var actionLogTextViev: UITextView!
+            
+    @IBOutlet weak var actionLogTextView: UITextView!
     
     @IBOutlet weak var counterLabel: UILabel!
     
@@ -55,10 +55,10 @@ class ViewController: UIViewController {
         incrementButton.tintColor = .systemRed
         resetButton.tintColor = .systemGreen
         
-        actionLogTextViev.layer.borderWidth = 2
-        actionLogTextViev.layer.borderColor = UIColor.systemIndigo.cgColor
-        actionLogTextViev.layer.cornerRadius = 8
-        actionLogTextViev.clipsToBounds = true
+        actionLogTextView.layer.borderWidth = 2
+        actionLogTextView.layer.borderColor = UIColor.systemIndigo.cgColor
+        actionLogTextView.layer.cornerRadius = 8
+        actionLogTextView.clipsToBounds = true
     }
 
 
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         counter += 1
         counterLabel.text = "\(counterDisplayText) \(counter)"
         
-        updateLogTextViev(logType: .increment)
+        updateLogTextView(logType: .increment)
     }
     
     @IBAction func buttonDidDecrement() {
@@ -74,9 +74,9 @@ class ViewController: UIViewController {
             counter -= 1
             counterLabel.text = "\(counterDisplayText) \(counter)"
             
-            updateLogTextViev(logType: .decrement)
+            updateLogTextView(logType: .decrement)
         } else {
-            updateLogTextViev(logType: .decrimentFloreLock)
+            updateLogTextView(logType: .decrimentFloreLock)
         }
     }
     
@@ -85,15 +85,15 @@ class ViewController: UIViewController {
         counter = 0
         counterLabel.text = "\(counterDisplayText) \(counter)"
         
-        updateLogTextViev(logType: .reset)
+        updateLogTextView(logType: .reset)
     }
     
-    private func updateLogTextViev(logType:logButtonAction){
-        actionLogTextViev.text += "\n\(logType.displayLogText)"
+    private func updateLogTextView(logType:logButtonAction){
+        actionLogTextView.text += "\n\(logType.displayLogText)"
         
         // Auto scroll
-        let range = NSRange(location: actionLogTextViev.text.count - 1, length: 1)
-        actionLogTextViev.scrollRangeToVisible(range)
+        let range = NSRange(location: actionLogTextView.text.count - 1, length: 1)
+        actionLogTextView.scrollRangeToVisible(range)
     }
 }
 
