@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         counter += 1
         counterLabel.text = "\(counterDisplayText) \(counter)"
         
-        updateLogLable(logType: .increment)
+        updateLogTextViev(logType: .increment)
     }
     
     @IBAction func buttonDidDecrement() {
@@ -74,9 +74,9 @@ class ViewController: UIViewController {
             counter -= 1
             counterLabel.text = "\(counterDisplayText) \(counter)"
             
-            updateLogLable(logType: .decrement)
+            updateLogTextViev(logType: .decrement)
         } else {
-            updateLogLable(logType: .decrimentFloreLock)
+            updateLogTextViev(logType: .decrimentFloreLock)
         }
     }
     
@@ -85,10 +85,10 @@ class ViewController: UIViewController {
         counter = 0
         counterLabel.text = "\(counterDisplayText) \(counter)"
         
-        updateLogLable(logType: .reset)
+        updateLogTextViev(logType: .reset)
     }
     
-    private func updateLogLable(logType:logButtonAction){
+    private func updateLogTextViev(logType:logButtonAction){
         actionLogTextViev.text += "\n\(logType.displayLogText)"
         
         // Auto scroll
