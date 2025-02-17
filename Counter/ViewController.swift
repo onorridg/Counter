@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum logButtonAction {
+enum LogButtonAction {
     case increment
     case decrement
     case decrimentFloreLock
@@ -30,21 +30,20 @@ enum logButtonAction {
     func getCurrentDatetime() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
         return formatter.string(from: Date())
     }
     
 }
 
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    @IBOutlet weak var incrementButton: UIButton!
-    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak private var incrementButton: UIButton!
+    @IBOutlet weak private var resetButton: UIButton!
             
-    @IBOutlet weak var actionLogTextView: UITextView!
+    @IBOutlet weak private var actionLogTextView: UITextView!
     
-    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak private var counterLabel: UILabel!
     
     private var counter = 0
     private let counterDisplayText = "Значение счётчика:"
@@ -62,14 +61,14 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func buttonDidIncrement() {
+    @IBAction private func buttonDidIncrement() {
         counter += 1
         counterLabel.text = "\(counterDisplayText) \(counter)"
         
         updateActionLogTextView(logType: .increment)
     }
     
-    @IBAction func buttonDidDecrement() {
+    @IBAction private func buttonDidDecrement() {
         if counter > 0 {
             counter -= 1
             counterLabel.text = "\(counterDisplayText) \(counter)"
@@ -81,14 +80,14 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func buttonDidReset() {
+    @IBAction private func buttonDidReset() {
         counter = 0
         counterLabel.text = "\(counterDisplayText) \(counter)"
         
         updateActionLogTextView(logType: .reset)
     }
     
-    private func updateActionLogTextView(logType:logButtonAction){
+    private func updateActionLogTextView(logType:LogButtonAction){
         actionLogTextView.text += "\n\(logType.displayLogText)"
         
         // Auto scroll
